@@ -1,4 +1,6 @@
-package com.pluralsight;
+package com.pluralsight.menu;
+
+import com.pluralsight.Topping;
 
 import java.util.ArrayList;
 import java.util.List;
