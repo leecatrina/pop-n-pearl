@@ -1,7 +1,6 @@
 package com.pluralsight.menu;
 
-import com.pluralsight.Topping;
-
+import com.pluralsight.toppings.Topping;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,11 +12,15 @@ public class MilkTea implements MenuItem {
     private boolean isSpecialized;
 
     public MilkTea(String name, String size, String baseType) {
-        this.name = baseType + "Milk Tea";
+        this.name = baseType + " Milk Tea";
         this.size = size;
         this.baseType = baseType;
         this.toppings = new ArrayList<>();
         this.isSpecialized = false;
+    }
+    //method to add individual toppings
+    public void addTopping(Topping topping) {
+        this.toppings.add(topping);
     }
     //setters and getters
 
@@ -78,13 +81,13 @@ public class MilkTea implements MenuItem {
                 basePrice = 6.00;
                 break;
             default:
-                basePrice = 0;
+                basePrice = 4.00;
         }
         //topping price
 
         double toppingCost = 0.0;
         for (Topping t : toppings) {
-            toppingCost += t.getPrice();
+            toppingCost += t.getPrice(size);
         }
         //extra cost if specialized
         if (isSpecialized) {
