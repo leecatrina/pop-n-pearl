@@ -10,6 +10,8 @@ public class MilkTea implements MenuItem {
     private String baseType; //black tea, Oolong tea, milk, oat milk
     private List<Topping> toppings;
     private boolean isSpecialized;
+    private String iceLevel;
+    private String sugarLevel;
 
     public MilkTea(String name, String size, String baseType) {
         this.name = baseType + " Milk Tea";
@@ -24,6 +26,11 @@ public class MilkTea implements MenuItem {
         this.baseType = baseType;
         this.toppings = toppings;
         this.isSpecialized = false;
+    }
+
+    public MilkTea(String iceLevel, String sugarLevel) {
+        this.iceLevel = iceLevel;
+        this.sugarLevel = sugarLevel;
     }
 
     //method to add individual toppings
@@ -66,6 +73,22 @@ public class MilkTea implements MenuItem {
 
     public void setSpecialized(boolean specialized) {
         isSpecialized = specialized;
+    }
+
+    public String getIceLevel() {
+        return iceLevel;
+    }
+
+    public void setIceLevel(String iceLevel) {
+        this.iceLevel = iceLevel;
+    }
+
+    public String getSugarLevel() {
+        return sugarLevel;
+    }
+
+    public void setSugarLevel(String sugarLevel) {
+        this.sugarLevel = sugarLevel;
     }
     //implemented from MenuItem
 

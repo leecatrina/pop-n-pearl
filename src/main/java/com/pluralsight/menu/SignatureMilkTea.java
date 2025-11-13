@@ -17,6 +17,10 @@ public class SignatureMilkTea extends MilkTea{
             getToppings().add(new Topping("Matcha Foam", "premium"));
         } else if (name.equalsIgnoreCase("Taro Dream")) {
             getToppings().add(new Topping("Taro Pudding", "regular"));
+        } else if (name.equalsIgnoreCase("House special")) {
+            getToppings().add(new Topping("Cheese Foam", "premium"));
+            getToppings().add(new Topping("Mango Chunks","regular"));
+
         }
     }
 }

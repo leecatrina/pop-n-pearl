@@ -9,29 +9,119 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static com.pluralsight.app.PopNPearlApp.ConsoleColors.*;
+
 public class PopNPearlApp {
+    public static int orderCounter = 1;
+
+    //Secret sauce ooOoO Makes everything preeeetyyyyyy :P
+    public class ConsoleColors {
+        public static final String RESET = "\u001B[0m";
+        public static final String RED = "\u001B[31m";
+        public static final String GREEN = "\u001B[32m";
+        public static final String BLUE = "\u001B[34m";
+        public static final String ORANGE = "\u001B[93m";
+        public static final String MAGENTA = "\u001B[95m";
+        public static final String PINK = "\u001B[38;5;211m";
+    }
+    //==============================SIZE===============================================
+    public static String getValidSize(Scanner scanner) {
+        while (true) {
+            System.out.print("Enter size (Small/Medium/Large): ");
+            String size = scanner.nextLine().trim();
+
+            if (size.equalsIgnoreCase("Small") || size.equalsIgnoreCase("Medium") || size.equalsIgnoreCase("Large")) {
+                return size.substring(0, 1).toUpperCase() + size.substring(1).toLowerCase(); // Format nicely
+            } else {
+                System.out.println("❌ Invalid size! Please enter Small, Medium, or Large.");
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<MenuItem> items = new ArrayList<>();
 
-        System.out.println("__        __     _                                _            \n" +
+        System.out.println( MAGENTA + "__        __     _                                _            \n" +
                 "\\ \\      / /___ | |  ___  ___   _ __ ___    ___  | |_  ___     \n" +
                 " \\ \\ /\\ / // _ \\| | / __|/ _ \\ | '_ ` _ \\  / _ \\ | __|/ _ \\    \n" +
                 "  \\ V  V /|  __/| || (__| (_) || | | | | ||  __/ | |_| (_) |   \n" +
                 " __\\_/\\_/  \\___||_| \\___|\\___/ |_|_|_| |_| \\___|  \\__|\\___/  _ \n" +
-                "|  _ \\  ___   _ __   | \\ | |( ) |  _ \\  ___   __ _  _ __ | || |\n" +
+               PINK + "|  _ \\  ___   _ __   | \\ | |( ) |  _ \\  ___   __ _  _ __ | || |\n" +
                 "| |_) |/ _ \\ | '_ \\  |  \\| ||/  | |_) |/ _ \\ / _` || '__|| || |\n" +
                 "|  __/| (_) || |_) | | |\\  |    |  __/|  __/| (_| || |   | ||_|\n" +
                 "|_|    \\___/ | .__/  |_| \\_|    |_|    \\___| \\__,_||_|   |_|(_)\n" +
-                "             |_|                                               ");
+                "             |_|                                               " + RESET );
+
+        System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⣀⣠⣤⣤⣤⣤⣴⣶⣶⣦⣤⣤⣤⣤⣄⣀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠉⣉⠉⠉⠹⣿⠀⠀⠀⠀⠀⠈⠉⠉⣉⠉⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⢿⡇⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀⢸⡿⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⡆⠘⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣷⠀⢻⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣿⡄⠸⣿⣿⣿⣿⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣧⠀⢿⣿⣿⡟⢻⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡿⣿⠉⢻⡀⢸⡏⢉⡗⢺⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣄⣼⠛⢻⣇⣀⡟⢉⣷⣾⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣧⣼⣷⣾⣅⣹⣿⣿⣤⣼⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
+
+        //=======Ask for name and phone number============
+
+        String customerName;
+        while (true) {
+            System.out.print(GREEN + " [Please enter your name] : " + RESET);
+            customerName = scanner.nextLine().trim();
+
+            if (!customerName.isEmpty()) {
+                break;
+            } else {
+                System.out.println(RED + "❌ Name cannot be empty!"+ RESET);
+            }
+        }
+
+        //==========Ask for phone number=================
+        String phoneNumber;
+        while(true) {
+            System.out.print(GREEN + "[Please enter your phone number] : " + RESET);
+            phoneNumber = scanner.nextLine().trim();
+
+            boolean valid = true;
+            for (char c : phoneNumber.toCharArray()) {
+                if (!Character.isDigit(c)) {
+                    valid = false;
+                    break;
+                }
+            }
+
+            if (valid && !phoneNumber.isEmpty()) {
+                break;
+            } else {
+                System.out.println(RED + "❌ Invalid phone number! Only digits are allowed." + RESET);
+            }
+        }
+
+        System.out.println("\nThank you, " + customerName + "!");
+        System.out.println("Your phone number: " + phoneNumber);
+        System.out.println("Let's start your order!\n");
+
+        //=================Start menu==================
+
+        showMainMenu(scanner, items, customerName);
+    }
+
+    public static void showMainMenu(Scanner scanner, List<MenuItem> items, String customerName) {
         boolean ordering = true;
 
         while (ordering) {
-            System.out.println("\n======== MAIN MENU ========");
-            System.out.println("1. Milk Tea");
-            System.out.println("2. Signature Milk Tea");
-            System.out.println("3. Drink");
-            System.out.println("4. Side");
+            System.out.println(PINK + "\n-._,-'\"`-._,-' MAIN MENU -._,-'\"`-._,-'" + RESET);
+            System.out.println("1. Milk Tea 🧋");
+            System.out.println("2. Signature Milk Tea ✨🧋");
+            System.out.println("3. Drink 🥤");
+            System.out.println("4. Side 🍗");
             System.out.println("5. View Full Menu");
             System.out.println("6. Finish Order");
             System.out.print("Enter choice: ");
@@ -59,16 +149,17 @@ public class PopNPearlApp {
                         ordering = false;
                         break;
                     default:
-                        System.out.println("❌ Invalid choice! Please enter a number 1-6.");
+                        System.out.println(RED + "❌ Invalid choice! Please enter a number 1-6." + RESET);
                         break;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("❌ Invalid input! Please enter a number (1-6).");
+                System.out.println(RED + "❌ Invalid input! Please enter a number (1-6)." + RESET);
             }
         }
 
-        // Display order summary
-        System.out.println("\n======== YOUR ORDER ========");
+        //=================Display order summary=====================
+
+        System.out.println(PINK + "\n-._,-'\"`-._,-' YOUR ORDER -._,-'\"`-._,-'" + RESET);
         if (items.isEmpty()) {
             System.out.println("No items ordered.");
         } else {
@@ -76,25 +167,30 @@ public class PopNPearlApp {
                 System.out.println(item);
             }
 
-            // Create order and print receipt
+            //===========Create order and print receipt====================
+
             Order order = new Order(items);
             Receipt receipt = new Receipt(order);
             receipt.printReceipt();
         }
 
         System.out.println("\n✅ Order complete! Thank you!");
+        System.out.println("🎉 Your order number is " + orderCounter + " 🎉");
+        orderCounter++; //order counter, increments for the next order
         scanner.close();
     }
 
-    // Display full menu
+    //================Display full menu========================
+
     public static void displayFullMenu() {
-        System.out.println("\n╔════════════════════════════════════════════╗");
+        System.out.println(PINK +"\n╔════════════════════════════════════════════╗");
         System.out.println("║          🧋 POP N' PEARL MENU 🧋          ║");
-        System.out.println("╚════════════════════════════════════════════╝");
+        System.out.println("╚════════════════════════════════════════════╝" + RESET);
 
         System.out.println("\n--- MILK TEA ---");
         System.out.println("Build your own custom milk tea!");
-        System.out.println("Base Options: Black Tea, Oolong Tea, Green Tea");
+        System.out.println("Base Options: Black Tea, Oolong Tea, Green Tea, Almond Milk");
+        System.out.println("Flavor Options: Classic Milk Tea, Taro, Thai Tea, , ");
         System.out.println("Sizes: Small ($4.00) | Medium ($5.00) | Large ($6.00)");
 
         System.out.println("\n--- AVAILABLE TOPPINGS ---");
@@ -110,9 +206,12 @@ public class PopNPearlApp {
         System.out.println("  • Oreo Crumble");
 
         System.out.println("\n--- SIGNATURE MILK TEAS ---");
-        System.out.println("House Special - Mango Breeze! 🍹");
-        System.out.println("Take a sip of sunshine! Our Mango Breeze blends creamy yogurt with juicy, real mango chunks for the perfect tropical smoothie.");
-        System.out.println("Topped with a light, velvety cheese foam, it’s a sweet, tangy, and refreshingly smooth treat that feels like a summer getaway in every sip.");
+        System.out.println("Available Signature Drinks: ");
+        System.out.println("1. House Special - Mango Breeze! 🍹");
+        System.out.println("2. Brown Sugar Milk Tea");
+        System.out.println("3. Matcha Latte");
+        System.out.println("4. Taro Dream");
+
         System.out.println("Sizes: Small ($5.00) | Medium ($6.00) | Large ($7.00)");
 
         System.out.println("\n--- DRINKS ---");
@@ -128,9 +227,10 @@ public class PopNPearlApp {
         System.out.println("\n================================================");
     }
 
-    // Show topping menu
+    //=======================Show topping menu=====================================
+
     public static void showToppingMenu() {
-        System.out.println("\n--- Available Toppings ---");
+        System.out.println("\n-._,-'\"`-._,-' Available Toppings ---");
         System.out.println("Regular (Free):");
         System.out.println("  1. Boba");
         System.out.println("  2. Jelly");
@@ -144,16 +244,67 @@ public class PopNPearlApp {
     }
 
     // Methods
+
+    //===================Create your own milk tea==========================
+
     public static MilkTea createMilkTea(Scanner scanner) {
         System.out.println("\n--- Build Your Milk Tea ---");
-        System.out.println("Tea Base Options: Black, Oolong, Green");
+        System.out.println("Tea Base Options: Black, Oolong, Green, Almond Milk");
+        System.out.println("Flavor Options: Classic Milk Tea, Taro, Thai Tea, , ");
         System.out.print("Enter tea base: ");
         String baseType = scanner.nextLine();
 
-        System.out.print("Enter size (Small/Medium/Large): ");
-        String size = scanner.nextLine();
+        System.out.print("Enter tea flavor: ");
+        String flavor = scanner.nextLine();
 
-        MilkTea milkTea = new MilkTea("Custom Milk Tea", size, baseType);
+        System.out.print("Enter size (Small/Medium/Large): ");
+        String size = getValidSize(scanner);
+
+        //  ICE LEVEL
+
+        System.out.println("\nChoose ice level:");
+        System.out.println("1. No Ice");
+        System.out.println("2. Less Ice");
+        System.out.println("3. Regular Ice");
+        System.out.println("4. Extra Ice");
+        System.out.print("Enter your choice: ");
+        int iceChoice = Integer.parseInt(scanner.nextLine());
+        String iceLevel = switch (iceChoice) {
+            case 1 -> "No Ice";
+            case 2 -> "Less Ice";
+            case 3 -> "Regular Ice";
+            case 4 -> "Extra Ice";
+            default -> "Regular Ice";
+        };
+
+        //  SUGAR LEVEL
+
+        System.out.println("\nChoose sugar level:");
+        System.out.println("1. 0%");
+        System.out.println("2. 25%");
+        System.out.println("3. 50%");
+        System.out.println("4. 75%");
+        System.out.println("5. 100%");
+        System.out.print("Enter your choice: ");
+        int sugarChoice = Integer.parseInt(scanner.nextLine());
+        String sugarLevel = switch (sugarChoice) {
+            case 1 -> "0%";
+            case 2 -> "25%";
+            case 3 -> "50%";
+            case 4 -> "75%";
+            case 5 -> "100%";
+            default -> "100%";
+        };
+
+
+        MilkTea milkTea = new MilkTea(flavor + " Milk Tea", size, baseType);
+
+        // Store ice & sugar
+
+        milkTea.setIceLevel(iceLevel);
+        milkTea.setSugarLevel(sugarLevel);
+
+        //==============================toppings==========================
 
         boolean addingToppings = true;
         while (addingToppings) {
@@ -210,24 +361,67 @@ public class PopNPearlApp {
 
         return milkTea;
     }
+    //==========================Signature Milk Tea==============================
 
     public static SignatureMilkTea createSignatureMilkTea(Scanner scanner) {
         System.out.println("\n--- Signature Milk Tea ---");
-        System.out.println("House Special - Premium blend with special toppings");
+
+        String name = "";
+
+        System.out.println("Available Signature Drinks: ");
+        System.out.println("1. Seasonal Special - Peppermint Matcha Latte");
+        System.out.println("2. Brown Sugar Milk Tea");
+        System.out.println("3. Mango Breeze");
+        System.out.println("4. Taro Dream");
+        System.out.println("Enter the number of your choice (or 'B' to go back) ");
+
+        String input = scanner.nextLine();
+
+        if (input.equalsIgnoreCase("B")) {
+            return null; //go back to main menu
+        }
+
+        try {
+            int choice = Integer.parseInt(input);
+            switch (choice) {
+                case 1:
+                    name = "Seasonal Special - Peppermint Matcha Latte:";
+                    break;
+                case 2:
+                    name = "Brown Sugar Milk Tea";
+                    break;
+                case 3:
+                    name = "Mango Breeze";
+                    break;
+                case 4:
+                    name = "Taro Dream";
+                    break;
+                default:
+                    System.out.println("❌ Invalid choice, Please enter 1-4.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("❌ Invalid input! Enter a number 1-4 or 'B' to go back. ");
+        }
         System.out.print("Enter size (Small/Medium/Large): ");
-        String size = scanner.nextLine();
-        return new SignatureMilkTea("House Special", size);
+        String size = getValidSize(scanner);
+
+        return new SignatureMilkTea(name, size);
     }
+    // ====================OTHER DRINKS===============================
 
     public static Drink createDrink(Scanner scanner) {
         System.out.println("\n--- Drinks Menu ---");
         System.out.println("Popular: Lemonade, Fruit Tea, Smoothie");
         System.out.print("Enter drink name: ");
+
         String name = scanner.nextLine();
+
         System.out.print("Enter size (Small/Medium/Large): ");
-        String size = scanner.nextLine();
+        String size = getValidSize(scanner);
+
         return new Drink(name, size, 3.00, 4.00, 5.00);
     }
+    //==================SIDES=================================
 
     public static Side createSide(Scanner scanner) {
         System.out.println("\n--- Sides Menu ---");
