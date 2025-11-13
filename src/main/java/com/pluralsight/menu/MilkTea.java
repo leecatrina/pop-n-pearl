@@ -18,6 +18,14 @@ public class MilkTea implements MenuItem {
         this.toppings = new ArrayList<>();
         this.isSpecialized = false;
     }
+    public MilkTea(String name, String size, String baseType, List<Topping> toppings) {
+        this.name = name;
+        this.size = size;
+        this.baseType = baseType;
+        this.toppings = toppings;
+        this.isSpecialized = false;
+    }
+
     //method to add individual toppings
     public void addTopping(Topping topping) {
         this.toppings.add(topping);
