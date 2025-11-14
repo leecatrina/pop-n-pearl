@@ -43,7 +43,7 @@ public class PopNPearlApp {
         }
 
         scanner.close();
-        System.out.println("👋 Thank you for Pop N' by!~~");
+        System.out.println(PINK + "👋 Thank you for Pop N' by!~~" + RESET );
 
     }
 
