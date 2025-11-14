@@ -8,6 +8,8 @@ A Java POS system for a boba shop where users can choose drinks, customize sizes
 - **Smart Topping System** - Regular (free) vs Premium (paid) toppings
 - **Receipts** - Automatic file saving with timestamps
 
+## Pop N' Pearl HOMESCREEN
+![Screenshot 2025-11-14 101006.png](Diagram/Screenshot%202025-11-14%20101006.png)
 
 ## UML DIAGRAM
 ![POP_N_PEARL_UML.png](Diagram/POP_N_PEARL_UML.png)
