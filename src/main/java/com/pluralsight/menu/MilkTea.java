@@ -7,14 +7,14 @@ import java.util.List;
 public class MilkTea implements MenuItem {
     private String name;
     private String size;
-    private String baseType; //black tea, Oolong tea, milk, oat milk
+    private String baseType; //black tea, Oolong tea, milk, almond milk
     private List<Topping> toppings;
     private boolean isSpecialized;
     private String iceLevel;
     private String sugarLevel;
 
     public MilkTea(String name, String size, String baseType) {
-        this.name = baseType + " Milk Tea";
+        this.name = name;
         this.size = size;
         this.baseType = baseType;
         this.toppings = new ArrayList<>();
@@ -29,6 +29,7 @@ public class MilkTea implements MenuItem {
     }
 
     public MilkTea(String iceLevel, String sugarLevel) {
+        this("Custom Milk Tea","medium","Black Tea");
         this.iceLevel = iceLevel;
         this.sugarLevel = sugarLevel;
     }
@@ -100,6 +101,8 @@ public class MilkTea implements MenuItem {
 
     @Override
     public double calculatePrice() {
+        if (size == null) return 0.0;
+
         double basePrice;
         switch (size.toLowerCase()) {
             case "small":
@@ -129,20 +132,19 @@ public class MilkTea implements MenuItem {
     }
 
     //to string
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(name).append(" (").append(size).append(") ");
+        sb.append(name).append(" (").append(size).append(") - $").append(String.format("%.2f", calculatePrice()));
+        sb.append("\n  Base: ").append(baseType);
+        if (iceLevel != null) sb.append(" | Ice: ").append(iceLevel);
+        if (sugarLevel != null) sb.append(" | Sugar: ").append(sugarLevel);
         if (!toppings.isEmpty()) {
-            sb.append("Toppings: ");
+            sb.append("\n  Toppings: ");
             for (Topping t : toppings) {
                 sb.append(t.getName()).append(", ");
             }
-            sb.setLength(sb.length() - 2); // remove trailing comma
-        }
-        if (isSpecialized) {
-            sb.append(" [Specialized]");
+            sb.setLength(sb.length() - 2);
         }
         return sb.toString();
     }

@@ -31,7 +31,7 @@ public class UserInterface {
                 "| |_) |/ _ \\ | '_ \\  |  \\| ||/  | |_) |/ _ \\ / _` || '__|| || |\n" +
                 "|  __/| (_) || |_) | | |\\  |    |  __/|  __/| (_| || |   | ||_|\n" +
                 "|_|    \\___/ | .__/  |_| \\_|    |_|    \\___| \\__,_||_|   |_|(_)\n" +
-                "             |_|                                               " + ConsoleColors.RESET);
+                "             |_|                                               " + ConsoleColors.RESET); // uhh this looks like computer throw up.. #trust the process
 
         System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
@@ -113,8 +113,8 @@ public class UserInterface {
         System.out.println("2. Signature Milk Tea ✨🧋");
         System.out.println("3. Drink 🥤");
         System.out.println("4. Side 🍗");
-        System.out.println("5. View Full Menu");
-        System.out.println("6. Finish Order");
+        System.out.println("5. View Full Menu 📃");
+        System.out.println("6. Finish Order 💳");
         System.out.print("Enter choice: ");
     }
 
@@ -123,13 +123,13 @@ public class UserInterface {
         System.out.println("║          🧋 POP N' PEARL MENU 🧋          ║");
         System.out.println("╚════════════════════════════════════════════╝" + ConsoleColors.RESET);
 
-        System.out.println("\n--- MILK TEA ---");
+        System.out.println(ConsoleColors.PINK + "\n-._,-'\"`-._,-' MILK TEA -._,-'\"`-._,-'" + ConsoleColors.RESET);
         System.out.println("Build your own custom milk tea!");
         System.out.println("Base Options: Black Tea, Oolong Tea, Green Tea, Almond Milk");
-        System.out.println("Flavor Options: Classic Milk Tea, Taro, Thai Tea");
+        System.out.println("Flavor Options: Classic Milk Tea, Taro, Thai Tea, Honeydew");
         System.out.println("Sizes: Small ($4.00) | Medium ($5.00) | Large ($6.00)");
 
-        System.out.println("\n--- AVAILABLE TOPPINGS ---");
+        System.out.println(ConsoleColors.PINK + "\n-._,-'\"`-._,-' AVAILABLE TOPPING -._,-'\"`-._,-'" + ConsoleColors.RESET);
         System.out.println("Regular (Free):");
         System.out.println("  • Boba (Tapioca Pearls)");
         System.out.println("  • Jelly");
@@ -139,30 +139,30 @@ public class UserInterface {
         System.out.println("  • Crystal Boba");
         System.out.println("  • Cheese Foam");
         System.out.println("  • Brown Sugar Boba");
-        System.out.println("  • Oreo Crumble");
+        System.out.println("  • Popping Boba");
 
-        System.out.println("\n--- SIGNATURE MILK TEAS ---");
+        System.out.println(ConsoleColors.PINK + "\n-._,-'\"`-._,-' SIGNATURE MILK TEA -._,-'\"`-._,-'" + ConsoleColors.RESET);
         System.out.println("Available Signature Drinks: ");
-        System.out.println("1. House Special - Mango Breeze! 🍹");
-        System.out.println("2. Brown Sugar Milk Tea");
-        System.out.println("3. Matcha Latte");
-        System.out.println("4. Taro Dream");
+        System.out.println("1. Seasonal Special - Peppermint Matcha Latte ❄️ ");
+        System.out.println("2. Brown Sugar Milk Tea 🧋");
+        System.out.println("3. Mango Breeze 🍹");
+        System.out.println("4. Ube Dream 🧋");
         System.out.println("Sizes: Small ($5.00) | Medium ($6.00) | Large ($7.00)");
 
-        System.out.println("\n--- DRINKS ---");
-        System.out.println("Fresh Lemonade, Fruit Tea, Smoothies, etc.");
+        System.out.println(ConsoleColors.PINK + "\n-._,-'\"`-._,-' OTHER DRINKS -._,-'\"`-._,-'" + ConsoleColors.RESET);
+        System.out.println("Fresh Lemonade🍋, Fruit Tea🍉, Smoothies🍍, etc.");
         System.out.println("Sizes: Small ($3.00) | Medium ($4.00) | Large ($5.00)");
 
-        System.out.println("\n--- SIDES ---");
-        System.out.println("Popcorn Chicken - $4.50");
+        System.out.println(ConsoleColors.PINK + "\n-._,-'\"`-._,-' SIDES -._,-'\"`-._,-'" + ConsoleColors.RESET);
+        System.out.println("Popcorn Chicken🍗 - $4.50");
         System.out.println("Spring Rolls - $3.50");
-        System.out.println("Edamame - $2.50");
-        System.out.println("Fries - $2.50");
+        System.out.println("Takoyaki 🐙- $4.50");
+        System.out.println("Fries 🍟- $2.50");
         System.out.println("\n================================================");
     }
 
     public static void showToppingMenu() {
-        System.out.println("\n-._,-'\"`-._,-' Available Toppings ---");
+        System.out.println(ConsoleColors.PINK + "\n-._,-'\"`-._,-'TOPPINGS -._,-'\"`-._,-'" + ConsoleColors.RESET);
         System.out.println("Regular (Free):");
         System.out.println("  1. Boba");
         System.out.println("  2. Jelly");
@@ -172,7 +172,7 @@ public class UserInterface {
         System.out.println("  5. Crystal Boba (+$0.50/0.75/1.00)");
         System.out.println("  6. Cheese Foam (+$0.75/1.00/1.25)");
         System.out.println("  7. Brown Sugar Boba (+$0.50/0.75/1.00)");
-        System.out.println("  8. Oreo Crumble (+$0.50/0.75/1.00)");
+        System.out.println("  8. Popping Boba (+$0.50/0.75/1.00)");
     }
 
     public static void displayOrderSummaryHeader() {
