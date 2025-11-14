@@ -87,6 +87,9 @@ public class PopNPearlApp {
                     case 6:
                         ordering = false;
                         break;
+                    case 0:
+                        System.out.println("❌ Order cancelled.");
+                        return;
                     default:
                         System.out.println(UserInterface.ConsoleColors.RED + "❌ Invalid choice! Please enter a number 1-6." + UserInterface.ConsoleColors.RESET);
                         break;

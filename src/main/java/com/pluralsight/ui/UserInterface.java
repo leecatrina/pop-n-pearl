@@ -114,7 +114,8 @@ public class UserInterface {
         System.out.println("3. Drink 🥤");
         System.out.println("4. Side 🍗");
         System.out.println("5. View Full Menu 📃");
-        System.out.println("6. Finish Order 💳");
+        System.out.println("6. Checkout 💳");
+        System.out.println("0. Cancel Order ❌");
         System.out.print("Enter choice: ");
     }
 
